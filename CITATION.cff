@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Please cite this software and attribute Planet Labs PBC for orbital source data."
+type: software
+title: "cubesat_aeroin: MATLAB Planet orbital-product archive utility"
+version: 1.0.0
+date-released: 2026-10-25
+authors:
+  - family-names: "Flores Farfan"
+    given-names: "Jair Francisco"
+repository-code: "https://github.com/jfloresf17/cubesat_aeroin"
+license: MIT

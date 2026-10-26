@@ -1,0 +1,6 @@
+# Keep the data directory in Git without uploading local data or outputs.
+data/*
+!data/.gitkeep
+*.asv
+*.m~
+__pycache__/
