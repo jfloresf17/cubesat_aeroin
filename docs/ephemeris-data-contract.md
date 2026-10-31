@@ -21,7 +21,7 @@ The state converter uses MATLAB's `datetime(...,'ConvertFrom','tt2000',
 'TimeZone','UTCLeapSeconds')` after converting source TT seconds to nanoseconds.
 It does not use UTC noon as J2000 or subtract a fixed TT-UTC offset. IEEE double
 source parsing and nanosecond conversion can introduce sub-microsecond
-rounding near the bundled epochs. `EpochTT_text` and the original bytes remain
+rounding near the referenced epochs. `EpochTT_text` and the original bytes remain
 authoritative. Keep MATLAB's leap-second information current for future data.
 
 Planet describes Cartesian coordinates as "J2000" on its public page. This

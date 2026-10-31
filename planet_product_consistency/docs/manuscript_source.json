@@ -1,0 +1,9 @@
+{
+  "file": "PlanetScope_Consistency_SmallSat.pdf",
+  "sha256": "855c2fb593413edc147ecb098a4f39bea63533129f34b7fac89dd1cce70f11b9",
+  "pages": 8,
+  "basis": "Sections 3.1\u20133.4, pages 3\u20135",
+  "target_satellites": 36,
+  "primary_pair_tolerance_seconds": 0.001,
+  "asynchronous_sensitivity_seconds": 86400
+}

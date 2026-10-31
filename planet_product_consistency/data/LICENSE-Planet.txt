@@ -1,0 +1,21 @@
+Planet public orbital ephemerides attribution
+============================================
+
+Planet Labs PBC, Public Orbital Ephemerides:
+https://ephemerides.planet-labs.com/
+
+The public source page states that its orbital ephemerides data are provided
+under Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0):
+https://creativecommons.org/licenses/by-nc/4.0/
+https://creativecommons.org/licenses/by-nc/4.0/legalcode.en
+
+Planet-derived fields in config/roster.csv and the small TLE smoke-test record
+are attributed to Planet Labs PBC, Public Orbital Ephemerides. The proposed
+roster intervals are unverified research candidates. These data retain their
+separate terms and are not relicensed under the project's MIT code licence.
+See NOTICE.md for additional attribution.
+
+Native orbital archives, catalogue snapshots, downloaded imagery and generated
+results are not included in this module; obtain them separately and respect the
+terms applicable to each source. Retain provenance and identify transformations
+when sharing any Planet-derived data. No endorsement by Planet Labs PBC is implied.

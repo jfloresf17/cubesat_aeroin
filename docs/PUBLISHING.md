@@ -1,31 +1,30 @@
-# Integration and publication
+# Publication checks
 
-This package extends the public `jfloresf17/cubesat_aeroin` repository from
-commit `afd41e59ed4ce55e667e7be95d42344c6e6e156e`. It adds the ingestion utility,
-research entry point, examples, tests, documentation, and a small attributed
-Planet dataset. Existing MIT licensing is retained for code.
+The repository contains the root MATLAB ephemerides downloader and the
+separate [PlanetScope consistency study](../planet_product_consistency/README.md).
+Their prerequisites and test commands differ; see the respective READMEs.
 
-1. Copy the package's `cubesat_aeroin/` contents into your repository checkout,
-   including `.github/` and `.gitignore`. Alternatively, apply the supplied
-   top-level patch from the repository root using `git apply`.
-2. Run the checks below in MATLAB R2022b or newer.
-3. Review the generated data inventory and `docs/VALIDATION.md`, update the
-   validation record with the actual MATLAB results, and commit the changes.
-4. Push your reviewed branch and inspect the MATLAB Actions result before
-   tagging a release. Keep large/full-study datasets outside ordinary Git
-   history; the included `.gitignore` already excludes generated runs.
+Before publishing changes:
+
+1. Review `git status` and the exact staged files. Keep `.env` files, downloaded
+   archives, catalogue snapshots, image previews and generated runs out of Git.
+2. Run the root downloader checks from the repository root in MATLAB R2022b or
+   newer. The default suite uses artificial fixtures and fails on any failure
+   or incomplete test. The separate `tests_optional` suite requires archived
+   Planet inputs and is not included in default CI.
+3. Run the consistency module's tests under its own documented requirements.
+4. Review data attribution and source terms before sharing any derived data.
+   The [Planet ephemerides notice](../data/LICENSE-Planet.txt) is separate from
+   the MIT code licence. Downloaded Planet archives are not bundled.
+5. Push the reviewed branch and inspect GitHub Actions before treating the CI
+   result as release evidence.
 
 ```matlab
 addpath('utilities');
 results = runtests('tests');
 assertSuccess(results);
-main
 ```
 
-To obtain new data, set `study.offline=false` in `main.m` and change its flock,
-HWIDs and date range. Omit `ID` from the utility call to select a complete
-flock. The example works without an API key.
-
-The source-data notice in `data/LICENSE-Planet.txt` applies independently of
-the MIT code license. If you distribute the included Planet fixture or any
-derived subset, retain that attribution and its CC BY-NC 4.0 terms.
+The public ephemerides downloader does not need a Planet API key. A fresh
+PlanetScope scene-catalogue search in the consistency module does require one;
+credentials must remain local and must not be written into output files.
