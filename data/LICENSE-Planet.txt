@@ -1,0 +1,16 @@
+Planet public orbital ephemerides attribution
+============================================
+
+Planet Labs PBC, Public Orbital Ephemerides:
+https://ephemerides.planet-labs.com/
+
+The public source page states that orbital ephemerides data are available under
+Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0):
+https://creativecommons.org/licenses/by-nc/4.0/
+https://creativecommons.org/licenses/by-nc/4.0/legalcode.en
+
+Downloaded native orbital archives are not bundled with this repository.
+The MIT code licence does not relicense Planet data; redistribution or
+adaptation of Planet-derived data must follow the applicable source terms,
+including attribution, noncommercial use and identification of changes.
+No endorsement by Planet Labs PBC is implied.

@@ -5,7 +5,22 @@ flock or satellite ID, and save the original files together with MATLAB and
 CSV outputs. The public entry point is
 [`downloadPlanetEphemerides`](utilities/downloadPlanetEphemerides.m).
 
-## MATLAB and credentials
+## PlanetScope orbital and footprint consistency
+
+The [PlanetScope consistency study](planet_product_consistency/README.md) is a
+separate MATLAB workflow that matches scenes with Cartesian states and TLEs,
+evaluates both products at a common scene time and compares conditional sensor
+footprints with the published polygons. The study requires MATLAB R2024b or
+later with Aerospace and Mapping toolboxes; a new PlanetScope catalogue search
+requires a Planet Data API key. The downloader below remains usable on its own
+without that key.
+
+<a href="planet_product_consistency/README.md"><img src="planet_product_consistency/docs/figures/methodology_overview.png" alt="Seven-stage PlanetScope consistency methodology" width="480"></a>
+
+*Conceptual methodology, not measured results. See the study README for the
+assumptions, limitations, equations and run instructions.*
+
+## MATLAB and credentials for the downloader
 
 - Use **MATLAB R2022b or newer**, with the JVM enabled. No Aerospace Toolbox
   is required. MATLAB executes the `.m` scripts and functions in this repository.
@@ -139,3 +154,28 @@ The downloader preserves native orbital epochs and source records. It does
 not propagate or transform states. Planet data is distributed under
 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 Local data files and generated outputs are excluded from Git.
+
+## Test the downloader
+
+From the repository root in MATLAB:
+
+```matlab
+addpath('utilities');
+results = runtests('tests');
+assertSuccess(results);
+```
+
+The suite exercises parsing and offline caching with small, artificial test
+records, and is the same suite run by CI. Tests requiring the optional
+September 2026 Planet archives, catalogue snapshot and independent reference
+CSV are separate from default CI. Run them explicitly when those files are
+available:
+
+```matlab
+addpath('utilities');
+realResults = runtests('tests_optional');
+```
+
+Missing optional fixtures are reported as incomplete rather than passed. See
+[validation](docs/VALIDATION.md) for the expected paths. The separate
+PlanetScope consistency module has its own test command in its README.
