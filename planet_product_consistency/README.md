@@ -12,6 +12,11 @@ each run under `results/`; a fresh checkout does not contain research results.
 See the [methodology](docs/FOOTPRINT_METHODOLOGY.md) for the scientific
 motivation, equations and detailed references.
 
+> **Working directory:** Commands and relative paths in this guide are
+> relative to the `planet_product_consistency/` study directory. From the
+> repository root, use `result = main;` and the [root README](../README.md),
+> which is the canonical methodology and setup guide.
+
 ## Requirements
 
 - MATLAB R2024b or later, with a working Java runtime, Aerospace Toolbox and
@@ -70,7 +75,7 @@ for unavailable dates. Existing source files are cached rather than overwritten.
 
 ### Planet API key
 
-Copy `.env.example` to `.env` in the repository root and set:
+Copy `.env.example` to `.env` in the study directory (`planet_product_consistency/`) and set:
 
 ```text
 PLANET_API_KEY=your_planet_api_key
@@ -83,7 +88,7 @@ and [Planet authentication](https://docs.planet.com/develop/authentication/).
 
 ## Run the acquisition and footprint study
 
-From the repository root in MATLAB:
+From the study directory (`planet_product_consistency/`) in MATLAB:
 
 ```matlab
 startup_consistency
@@ -132,7 +137,7 @@ example explicitly selects 1 s and disables thumbnails. Its dates default to
 smaller exploratory run, set `opts.MaxMatches` to a finite number and report
 that subset when interpreting its results.
 
-From a terminal in the repository root, the default workflow can also be
+From a terminal in the study directory (`planet_product_consistency/`), the default workflow can also be
 started with `matlab -batch "startup_consistency; result=run_footprint_study(footprint_study_config(2026));"`.
 
 ## Analysis process
